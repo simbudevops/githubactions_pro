@@ -44,7 +44,7 @@ jobs:
 
       - name: Deploy container locally
         run: |
-          sudo docker rm -f javaapp || true
-          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
-          sudo docker run -d -p 8085:8080 --name javaapp ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
-          sudo docker ps
+          docker rm -f javaapp || true
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
+          docker run -d -p 8085:8080 --name javaapp ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
+          docker ps
