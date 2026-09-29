@@ -2,7 +2,6 @@ name: Build-Push-Deploy #name of the workflow
 on: 
   push:
     branch: [ "master" ]
-
 jobs:
   build_push_deploy:
     runs-on: ubuntu-latest #github-hosted-runner
