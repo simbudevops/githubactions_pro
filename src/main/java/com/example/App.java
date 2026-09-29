@@ -17,7 +17,7 @@ public class App {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azure Dragon</title>
+<title> Dragon </title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;background:#020818;overflow:hidden}
@@ -30,7 +30,7 @@ canvas{display:block;width:100vw;height:100vh}
 <body>
 <canvas id="c"></canvas>
 <div class="v"></div>
-<div class="t">AZURE DRAGON</div>
+<div class="t"> DRAGON </div>
 <div class="h">Click or tap to unleash extra blue fire</div>
 <script>
 const c=document.getElementById('c'),x=c.getContext('2d');
