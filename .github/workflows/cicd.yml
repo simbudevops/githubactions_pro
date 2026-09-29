@@ -5,7 +5,6 @@ on:
     branches: [ "master" ]
 
 jobs:
-  # Job 1: build and push the image (runs on GitHub's cloud runner)
   build_push:
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +32,6 @@ jobs:
       - name: Push Docker Image to DockerHub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
 
-  # Job 2: deploy on your laptop (self-hosted runner in WSL Ubuntu-22.04)
   deploy:
     needs: build_push
     runs-on: [self-hosted, ubuntu2204]
@@ -46,11 +44,7 @@ jobs:
 
       - name: Deploy container locally
         run: |
-          # stop and remove the existing container
           docker rm -f javaapp || true
-          # pull the latest image
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
-          # run the container
           docker run -d -p 8080:8080 --name javaapp ${{ secrets.DOCKERHUB_USERNAME }}/java-docker-app:latest
-          # show running containers
           docker ps
