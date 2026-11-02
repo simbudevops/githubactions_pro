@@ -1,5 +1,4 @@
 name: Build-Push-Deploy
-
 on:
   push:
     branches: [ "master" ]
